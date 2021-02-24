@@ -1,29 +1,33 @@
-15:25:48.301 karate.env system property was: develop 
-15:18:29.758 javascript function call failed: <eval>:7 ReferenceError: "ecomapp" is not defined
-15:18:29.759 failed function body: function() {
-  var env = karate.env; // get java system property 'karate.env'
-  karate.log('karate.env system property was:', env);
-  var otp=0;
+16:49:43.759 karate.env system property was: develop 
+16:49:44.692 request:
+1 > POST http://devapi.rodeotechnologies.com/identity/api/v1/auth/challenge
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 69
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: devapi.rodeotechnologies.com
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_251)
+{"appCode":"ecomapp","mobile":"9566656578","challengeType":"SMS-OTP"}
 
-  var phoneNo=9876543210;
-  var appCode=ecomapp;
-var config = { // base config JSON
-    baseUrl: 'http://localhost:8081',
-  };
-  if (env=='develop') {
-      config.baseUrl = 'devapi.rodeotechnologies.com'; // a custom 'intelligent' default
+16:49:45.975 response time in milliseconds: 1281.77
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 79
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Wed, 24 Feb 2021 11:19:47 GMT
+1 < ETag: W/"4f-DFXGsrlJO3fjq9kpG92Z3jmnxMA"
+1 < Server: nginx/1.17.8
+{"success":true,"remainRetry":3,"otpExpiresIn":"Wed, 24 Feb 2021 11:49:46 GMT"}
 
-      config.phoneNo='9876543210';
-      config.appCode='ecomapp';
-
-
-    }
-  else if (env == 'prod') {
-    // over-ride only those that need to be
-    config.baseUrl = 'https://produrl.in/';
-    }
+16:49:45.978 [print] {
+  "remainRetry": 3,
+  "success": true,
+  "otpExpiresIn": "Wed, 24 Feb 2021 11:49:46 GMT"
 }
-15:18:29.759 evaluation of 'karate-config.js' failed: javascript function call failed: <eval>:7 ReferenceError: "ecomapp" is not defined
-pting.NashornScriptEngine.throwAsScriptException(NashornScriptEngine.java:470)
+
+challenge, response: {"errorDesc":"Not a valid mobile number","errorCode":"ERR004"}
+owAsScriptException(NashornScriptEngine.java:470)
 stack trace: com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:155)
-: com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:155)
+)
+gs.eval(ScriptBindings.java:155)

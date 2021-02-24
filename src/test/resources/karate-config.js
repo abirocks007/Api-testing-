@@ -1,18 +1,17 @@
 function fn() {
   var env = karate.env; // get java system property 'karate.env'
   karate.log('karate.env system property was:', env);
-  var otp=0;
 
-  var phoneNo="9876543210";
-  var appCode="ecomapp";
 var config = { // base config JSON
-    baseUrl: 'http://localhost:8081',
+    baseUrl: 'http://devapi.rodeotechnologies.com',
+    phoneNo: '9876543210',
+    appCode: 'ecomapp'
   };
   if (env=='develop') {
       config.baseUrl = 'devapi.rodeotechnologies.com'; // a custom 'intelligent' default
 
-      config.phoneNo="9876543210";
-      config.appCode="ecomapp";
+      config.phoneNo='9566656578';
+      config.appCode='ecomapp';
 
 
     }
@@ -20,4 +19,5 @@ var config = { // base config JSON
     // over-ride only those that need to be
     config.baseUrl = 'https://produrl.in/';
     }
+    return config;
 }
