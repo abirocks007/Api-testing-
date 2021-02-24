@@ -1,0 +1,29 @@
+15:25:48.301 karate.env system property was: develop 
+15:18:29.758 javascript function call failed: <eval>:7 ReferenceError: "ecomapp" is not defined
+15:18:29.759 failed function body: function() {
+  var env = karate.env; // get java system property 'karate.env'
+  karate.log('karate.env system property was:', env);
+  var otp=0;
+
+  var phoneNo=9876543210;
+  var appCode=ecomapp;
+var config = { // base config JSON
+    baseUrl: 'http://localhost:8081',
+  };
+  if (env=='develop') {
+      config.baseUrl = 'devapi.rodeotechnologies.com'; // a custom 'intelligent' default
+
+      config.phoneNo='9876543210';
+      config.appCode='ecomapp';
+
+
+    }
+  else if (env == 'prod') {
+    // over-ride only those that need to be
+    config.baseUrl = 'https://produrl.in/';
+    }
+}
+15:18:29.759 evaluation of 'karate-config.js' failed: javascript function call failed: <eval>:7 ReferenceError: "ecomapp" is not defined
+pting.NashornScriptEngine.throwAsScriptException(NashornScriptEngine.java:470)
+stack trace: com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:155)
+: com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:155)

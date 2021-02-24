@@ -1,0 +1,16 @@
+<testsuite failures="1" name="src/test/java/Features/otp.feature" skipped="0" tests="1" time="0.008011">
+  <testcase classname="src.test.java.Features.otp" name="should able to run with valid otp" time="0.008011">
+    <failure message="-unknown-:3 - evaluation (js) failed: baseUrl, javax.script.ScriptException: ReferenceError: &quot;baseUrl&quot; is not defined in &lt;eval&gt; at line number 1&#10;stack trace: jdk.nashorn.api.scripting.NashornScriptEngine.throwAsScriptException(NashornScriptEngine.java:470)">* url baseUrl ............................................................. failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: -unknown-:3 - evaluation (js) failed: baseUrl, javax.script.ScriptException: ReferenceError: "baseUrl" is not defined in &lt;eval&gt; at line number 1
+stack trace: jdk.nashorn.api.scripting.NashornScriptEngine.throwAsScriptException(NashornScriptEngine.java:470)&#13;
+	at ✽.* url baseUrl (-unknown-:3)&#13;
+
+Given path "/identity/api/v1/auth/challenge" .............................. skipped
+When request {"appCode": '#(appCode)',"mobile": '#(phoneNo)',"challengeType": "SMS-OTP"} . skipped
+And method post ........................................................... skipped
+Then status 200 ........................................................... skipped
+And print response ........................................................ skipped</failure>
+  </testcase>
+</testsuite>
